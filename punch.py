@@ -44,8 +44,6 @@ def stdev(l):
 print(history)
 
 streak_history = annotate_streak_history(history)
-# for streak in streak_history:
-#     print("({:3}) {}".format(streak_history[streak], "#" * streak_history[streak]))
 
 for nfailures in streak_history:
     print("({:3}) {}".format(nfailures, "#" * nfailures))
