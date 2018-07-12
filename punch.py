@@ -56,7 +56,7 @@ print("\nOut of {} tries we got {} successes for a {}% chance (ratio {})".format
 avg = average_streak(streak_history)
 sd = stdev(streak_history)
 
-ADZ = 425 # 425 astral diamonds per zen
+ZAX = 425 # astral diamonds per zen
 def diamonds_per_ward(exchange_rate):
     return 10*exchange_rate
 
@@ -65,5 +65,5 @@ print("most failures in a row: {}".format(max(streak_history)))
 print("average failure streak: {}".format(avg))
 print("standard deviation of failures in a streak: {:.3f}".format(sd))
 print("\nso budget for about {} preservation wards (about {} diamonds).".format(
-    int(avg+sd), diamonds_per_ward(ADZ) * int(avg+sd)
+    int(avg+sd), diamonds_per_ward(ZAX) * int(avg+sd)
 ))
