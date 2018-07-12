@@ -2,7 +2,7 @@ from random import random
 from math import sqrt
 
 chance = 0.05
-tries = 1000.0
+tries = 10000.0
 successes = 0.0
 nrolls = 0
 history = ""
@@ -48,7 +48,7 @@ streak_history = annotate_streak_history(history)
 for nfailures in streak_history:
     print("({:3}) {}".format(nfailures, "#" * nfailures))
 
-print("Out of {} tries we got {} successes for a {}% chance (ratio {})".format(
+print("\nOut of {} tries we got {} successes for a {}% chance (ratio {})".format(
     int(tries), successes, chance*100, successes/tries
     )
 )
@@ -56,10 +56,14 @@ print("Out of {} tries we got {} successes for a {}% chance (ratio {})".format(
 avg = average_streak(streak_history)
 sd = stdev(streak_history)
 
-print("least failures in a row: {}".format(min(streak_history)))
+ADZ = 425 # 425 astral diamonds per zen
+def diamonds_per_ward(exchange_rate):
+    return 10*exchange_rate
+
+print("\nleast failures in a row: {}".format(min(streak_history)))
 print("most failures in a row: {}".format(max(streak_history)))
 print("average failure streak: {}".format(avg))
-print("standard deviation of failures in a streak: {}".format(sd))
-print("\nso expect to use between {} and {} preservation wards.".format(
-    avg-sd, avg+sd
+print("standard deviation of failures in a streak: {:.3f}".format(sd))
+print("\nso budget for about {} preservation wards (about {} diamonds).".format(
+    int(avg+sd), diamonds_per_ward(ADZ) * int(avg+sd)
 ))
